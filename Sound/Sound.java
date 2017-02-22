@@ -7,7 +7,7 @@ import java.awt.event.*;
 
 //Can't play .mp3 or new files
 //use link for conversions, will try to make it automated:
-//http://www.online-convert.com/result/9f6832be8a910f6180abc1f059136452
+//http://audio.online-convert.com/convert-to-wav
    
 // To play sound using Clip, the process need to be 'alive'.
 // Hence, we use a Swing application.
@@ -58,9 +58,16 @@ public class Sound extends JFrame implements ActionListener{
 	if(e.getActionCommand().equals("1")){
 	    output.setText(t.getText());
 	    try{
-		play(t.getText());
+		if (clip==null||!clip.isRunning()){
+		    play(t.getText());
+		}
+		else{
+		    clip.stop();
+		    play(t.getText());
+		}
 	    }catch(Exception e1){
 		output.setText("Please enter valid file");
+		e1.printStackTrace();
 	    }
 	}
 	else if(e.getActionCommand().equals("2")){
@@ -82,12 +89,12 @@ public class Sound extends JFrame implements ActionListener{
 	    clip.open(audioIn);
 	    clip.start();
 	    /*
-// start()
-clip.start();  // play once
-// Loop()
-clip.loop(0);  // repeat none (play once), can be used in place of start().
-clip.loop(5);  // repeat 5 times (play 6 times)
-clip.loop(Clip.LOOP_CONTINUOUSLY);  // repeat forever
+	    // start()
+	    clip.start();  // play once
+	    // Loop()
+	    clip.loop(0);  // repeat none (play once), can be used in place of start().
+	    clip.loop(5);  // repeat 5 times (play 6 times)
+	    clip.loop(Clip.LOOP_CONTINUOUSLY);  // repeat forever
 	    */
 	} catch (UnsupportedAudioFileException e) {
 	    e.printStackTrace();
