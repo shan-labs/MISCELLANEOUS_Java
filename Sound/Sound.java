@@ -67,7 +67,7 @@ public class Sound extends JFrame implements ActionListener{
 		}
 	    }catch(Exception e1){
 		output.setText("Please enter valid file");
-		e1.printStackTrace();
+		//e1.printStackTrace();
 	    }
 	}
 	else if(e.getActionCommand().equals("2")){
