@@ -29,6 +29,7 @@ public class Sound extends JFrame implements ActionListener{
 	this.setTitle("Music Player");
         this.setSize(600,400);
 	this.setLocation(100,100);
+	this.setResizable(false);
 
 	pane = this.getContentPane();
 	pane.setLayout(new FlowLayout());
@@ -54,10 +55,29 @@ public class Sound extends JFrame implements ActionListener{
 
     }
 
+    public Sound(String x) {
+	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	this.setTitle("Music Player");
+        this.setSize(0,0);
+	this.setLocation(100,100);
+	this.setResizable(false);
+	play(x);
+    }
+
     public void actionPerformed(ActionEvent e){
+	boolean type=false;
 	if(e.getActionCommand().equals("1")){
 	    output.setText(t.getText());
 	    try{
+		String substr="";
+		if(t.getText().length()>4)
+		    substr = t.getText().substring(t.getText().length() - 4);
+		if(t.getText().charAt(t.getText().length() - 4)=='.'){
+		    if(!substr.equals(".wav")){
+			type=true;
+			throw new IllegalArgumentException();
+		    }
+		}
 		if (clip==null||!clip.isRunning()){
 		    play(t.getText());
 		}
@@ -68,6 +88,8 @@ public class Sound extends JFrame implements ActionListener{
 	    }catch(Exception e1){
 		output.setText("Please enter valid file");
 		//e1.printStackTrace();
+		if(type)
+		    output.setText("Please enter .wav file");
 	    }
 	}
 	else if(e.getActionCommand().equals("2")){
@@ -106,6 +128,7 @@ public class Sound extends JFrame implements ActionListener{
     }
    
     public static void main(String[] args) {
+	//Sound w= new Sound(args[0]); //precondition, playable file
 	Sound w= new Sound();
 	w.setVisible(true);
     }
