@@ -20,18 +20,21 @@ public class Sound extends JFrame implements ActionListener{
     private JLabel EQUAL; //playing or what happened
     private JTextField t; //text for fn
     private JTextField output; //text for EQUAL
+    //for disposal
+    private final JFrame j;
     //for music
     Clip clip;
     
     // Constructor
     public Sound() {
-	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	this.setTitle("Music Player");
-        this.setSize(600,400);
-	this.setLocation(100,100);
-	this.setResizable(false);
+	j=new JFrame("x");
+	j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	j.setTitle("Music Player");
+        j.setSize(600,400);
+	j.setLocation(100,100);
+	j.setResizable(false);
 
-	pane = this.getContentPane();
+	pane = j.getContentPane();
 	pane.setLayout(new FlowLayout());
 
 	fn = new JLabel("Song Name:",null,JLabel.CENTER);
@@ -55,7 +58,9 @@ public class Sound extends JFrame implements ActionListener{
 
     }
 
+    //second constructor for when song is chosen
     public Sound(String x) {
+	j=new JFrame("x");
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.setTitle("Music Player");
         this.setSize(0,0);
@@ -109,7 +114,7 @@ public class Sound extends JFrame implements ActionListener{
 	    clip= AudioSystem.getClip();
 	    // Open audio clip and load samples from the audio input stream.
 	    clip.open(audioIn);
-	    clip.start();
+	    clip.loop(Clip.LOOP_CONTINUOUSLY);
 	    /*
 	    // start()
 	    clip.start();  // play once
@@ -126,10 +131,23 @@ public class Sound extends JFrame implements ActionListener{
 	    e.printStackTrace();
 	}
     }
+
+    //stops, used for calls in diff class
+    public void stopper(){
+        if (clip!=null&&clip.isRunning())
+	    clip.stop();
+    }
+
+    //could be used for disposing later
+    public final JFrame getMainFrame(){
+        return j;
+    }
+
    
     public static void main(String[] args) {
-	//Sound w= new Sound(args[0]); //precondition, playable file
-	Sound w= new Sound();
+	Sound w= new Sound(args[0]); //precondition, playable file
+	//Sound w= new Sound();
 	w.setVisible(true);
+        
     }
 }
