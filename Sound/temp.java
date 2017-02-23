@@ -19,6 +19,7 @@ public class temp extends JFrame{
     
     public static void clear(Sound x){
 	if(x!=(Sound)null){
+	    x.start = System.currentTimeMillis();
 	    x.stopper();
 	    x=(Sound)null;
 	}

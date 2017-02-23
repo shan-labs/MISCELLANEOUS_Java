@@ -22,9 +22,9 @@ public class Sound extends JFrame implements ActionListener{
     private JTextField output; //text for EQUAL
     //for disposal
     private final JFrame j;
-    protected static double duration = 0.0;
+    protected static double duration = 0.0, currentTime = 0.0, start;
     //for music
-    Clip clip;
+    static Clip clip;
     
     // Constructor
     public Sound() {
@@ -119,6 +119,10 @@ public class Sound extends JFrame implements ActionListener{
 	    AudioFormat format = audioIn.getFormat();
 	    long frames = audioIn.getFrameLength();
 	    duration = (frames*1.0) / format.getFrameRate();  
+	    start = System.currentTimeMillis();
+	    while (clip.isRunning()) {
+	    	currentTime = System.currentTimeMillis() - start;
+	    }
 	    /*
 	    // start()
 	    clip.start();  // play once

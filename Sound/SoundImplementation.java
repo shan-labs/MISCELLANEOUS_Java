@@ -61,6 +61,7 @@ public class SoundImplementation implements ActionListener, MouseListener{
 	g.drawString("EXIT", 382, 600);
 	g.setFont(new Font("Helvetica", Font.PLAIN, 15));
 	g.drawString("Song Length: " + (int) Sound.duration / 60 + "min " + Math.round(Sound.duration % 60) + " seconds", 300, 700);
+	g.drawString("Current Progress: " + (int) Sound.currentTime / 1000 / 60 + "min " + Math.round(Sound.currentTime / 1000 % 60) + " seconds", 300, 750);
 	//System.out.println(Arrays.toString(myString));
     }
 
@@ -68,7 +69,7 @@ public class SoundImplementation implements ActionListener, MouseListener{
 	//temp.getter().dispose();
         //temp.objectname.reset();
 	temp.clear(temp.mainWindowInstance);
-        temp.j.dispose();
+    temp.j.dispose();
 	myString[0]=x;
 	temp.main(myString);
 	
@@ -98,31 +99,37 @@ public class SoundImplementation implements ActionListener, MouseListener{
 	//unseeded sudoku puzzle
         if(xcor >=245 && xcor<= 595 && ycor >=290 && ycor<= 330){
 	    //x.dispose();
+        Sound.clip.stop();
 	    music("elperdon");
 	}
 	//seeded sudoku puzzle
 	if(xcor >=650 && xcor<= 710 && ycor >=305 && ycor<= 325){
 	    //x.dispose();
+		Sound.clip.stop();
 	    music("Dangerous");
 	}
 	//solver
 	if(xcor >=245 && xcor<= 610&& ycor >=390 && ycor<= 420){
 	    //x.dispose();
+		Sound.clip.stop();
 	    music("Heathens");
 	}
 	//Difficulty window
 	if(xcor >=620 && xcor<= 740 && ycor >=350 && ycor<= 365){
 	    //x.dispose();
+		Sound.clip.stop();
 	    music("elperdon");
 	}//Settings window
 	if(xcor >=640 && xcor<= 720 && ycor >=390 && ycor<= 405){
 	    //x.dispose();
+		Sound.clip.stop();
 	    music("Dangerous");
 	}
 	    
 	//instructions
 	if(xcor >= 275 && xcor<= 570 && ycor >= 490 && ycor<= 517){
 	    //x.dispose();
+		Sound.clip.stop();
 	    music("Heathens");
 	}
 	
