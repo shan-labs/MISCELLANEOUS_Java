@@ -22,6 +22,7 @@ public class Sound extends JFrame implements ActionListener{
     private JTextField output; //text for EQUAL
     //for disposal
     private final JFrame j;
+    protected static double duration = 0.0;
     //for music
     Clip clip;
     
@@ -115,6 +116,9 @@ public class Sound extends JFrame implements ActionListener{
 	    // Open audio clip and load samples from the audio input stream.
 	    clip.open(audioIn);
 	    clip.loop(Clip.LOOP_CONTINUOUSLY);
+	    AudioFormat format = audioIn.getFormat();
+	    long frames = audioIn.getFrameLength();
+	    duration = (frames*1.0) / format.getFrameRate();  
 	    /*
 	    // start()
 	    clip.start();  // play once

@@ -59,6 +59,8 @@ public class SoundImplementation implements ActionListener, MouseListener{
         g.drawString("Heathens LOOL", 250, 400);
         g.drawString("Heathens LOL", 275, 500);
 	g.drawString("EXIT", 382, 600);
+	g.setFont(new Font("Helvetica", Font.PLAIN, 15));
+	g.drawString("Song Length: " + (int) Sound.duration / 60 + "min " + Math.round(Sound.duration % 60) + " seconds", 300, 700);
 	//System.out.println(Arrays.toString(myString));
     }
 
