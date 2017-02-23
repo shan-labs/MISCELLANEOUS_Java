@@ -7,17 +7,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.Timer;
-import java.util.Arrays; 
-
 
 public class SoundImplementation implements ActionListener, MouseListener{
 
     public static SoundImplementation menu;
-    public boolean starter =false;
-    public boolean exit =false;
     public Render renderer;
     JFrame x;
-    static String[] myString ={"a","0","",""};
+    static String[] myString ={"a","","",""};
 	
     public SoundImplementation(){
 	//window
@@ -32,7 +28,6 @@ public class SoundImplementation implements ActionListener, MouseListener{
         jframe.setVisible(true);
         jframe.setResizable(false);
         timer.start();
-        //music("animals");
     }
 
     public void actionPerformed(ActionEvent e){
@@ -47,29 +42,23 @@ public class SoundImplementation implements ActionListener, MouseListener{
         g.setColor(Color.WHITE);
         Font smenu=new Font ("Arial",Font.BOLD,80);
         g.setFont(smenu);
-        g.drawString("START MENU", 180, 150);
-	Font small=new Font ("Arial",Font.BOLD,20);
-        g.setFont(small);
-	g.drawString("dang", 650, 300);
-	g.drawString("el perdonL", 620, 340);
-	g.drawString("DANG", 641, 380);
+        g.drawString("MUSIC", 300, 150);
         Font mundane=new Font ("Arial",Font.BOLD,40);
-	g.setFont(mundane);
-	g.drawString("El Perdon HAA", 250, 300);
-        g.drawString("Heathens LOOL", 250, 400);
-        g.drawString("Heathens LOL", 275, 500);
+        g.setFont(mundane);
+	g.drawString("ANIMALS", 340, 275);
+	String ei="EL PERD"+'\u00D3'+"N";
+	g.drawString(ei, 310, 350);
+        g.drawString("HEATHENS", 315, 425);
+        g.drawString("DANGEROUS", 295, 500);
 	g.drawString("EXIT", 382, 600);
 	g.setFont(new Font("Helvetica", Font.PLAIN, 15));
-	g.drawString("Song Length: " + (int) Sound.duration / 60 + "min " + Math.round(Sound.duration % 60) + " seconds", 300, 700);
-	g.drawString("Current Progress: " + (int) Sound.currentTime / 1000 / 60 + "min " + Math.round(Sound.currentTime / 1000 % 60) + " seconds", 300, 750);
-	//System.out.println(Arrays.toString(myString));
+	g.drawString("Song Length: " + (int) Sound.duration / 60 + "min " + Math.round(Sound.duration % 60) + " seconds", 320, 700);
+	g.drawString("Current Progress: " + (int) Sound.currentTime / 1000 / 60 + "min " + Math.round(Sound.currentTime / 1000 % 60) + " seconds", 320, 725);
     }
 
     public void music(String x){
-	//temp.getter().dispose();
-        //temp.objectname.reset();
 	temp.clear(temp.mainWindowInstance);
-    temp.j.dispose();
+	temp.j.dispose();
 	myString[0]=x;
 	temp.main(myString);
 	
@@ -96,43 +85,28 @@ public class SoundImplementation implements ActionListener, MouseListener{
         int ycor=e.getY();
 	//System.out.println(xcor+","+ycor);
 
-	//unseeded sudoku puzzle
-        if(xcor >=245 && xcor<= 595 && ycor >=290 && ycor<= 330){
+	//songs
+	if(xcor >=335 && xcor<= 520 && ycor >=270 && ycor<= 300){
 	    //x.dispose();
-        Sound.clip.stop();
+	    Sound.clip.stop();
+	    music("animals");
+	}
+	if(xcor >=305 && xcor<= 550 && ycor >=340 && ycor<= 375){
+	    //x.dispose();
+	    Sound.clip.stop();
 	    music("elperdon");
 	}
-	//seeded sudoku puzzle
-	if(xcor >=650 && xcor<= 710 && ycor >=305 && ycor<= 325){
+	if(xcor >=310 && xcor<= 540 && ycor >=420 && ycor<= 450){
 	    //x.dispose();
-		Sound.clip.stop();
-	    music("Dangerous");
+	    Sound.clip.stop();
+	    music("heathens");
 	}
-	//solver
-	if(xcor >=245 && xcor<= 610&& ycor >=390 && ycor<= 420){
+	if(xcor >=290 && xcor<= 560 && ycor >=495 && ycor<= 525){
 	    //x.dispose();
-		Sound.clip.stop();
-	    music("Heathens");
+	    Sound.clip.stop();
+	    music("dangerous");
 	}
-	//Difficulty window
-	if(xcor >=620 && xcor<= 740 && ycor >=350 && ycor<= 365){
-	    //x.dispose();
-		Sound.clip.stop();
-	    music("elperdon");
-	}//Settings window
-	if(xcor >=640 && xcor<= 720 && ycor >=390 && ycor<= 405){
-	    //x.dispose();
-		Sound.clip.stop();
-	    music("Dangerous");
-	}
-	    
-	//instructions
-	if(xcor >= 275 && xcor<= 570 && ycor >= 490 && ycor<= 517){
-	    //x.dispose();
-		Sound.clip.stop();
-	    music("Heathens");
-	}
-	
+
 	//exit
 	if(xcor >= 375 && xcor <= 475 && ycor >= 590 && ycor <= 625){
 	    System.exit(0);
