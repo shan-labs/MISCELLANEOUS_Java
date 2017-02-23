@@ -70,14 +70,14 @@ public class Sound extends JFrame implements ActionListener{
 	    output.setText(t.getText());
 	    try{
 		String substr="";
-		if(t.getText().length()>4)
+		if(t.getText().length()>4){
 		    substr = t.getText().substring(t.getText().length() - 4);
-		if(t.getText().charAt(t.getText().length() - 4)=='.'){
-		    if(!substr.equals(".wav")){
+		    if(t.getText().charAt(t.getText().length() - 4)=='.'&&!substr.equals(".wav")){
 			type=true;
 			throw new IllegalArgumentException();
 		    }
-		}
+		}		
+
 		if (clip==null||!clip.isRunning()){
 		    play(t.getText());
 		}
