@@ -10,7 +10,7 @@ import javax.swing.Timer;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JTextField;
-
+import javax.swing.JOptionPane;
 
 public class SoundImplementation implements ActionListener, MouseListener, KeyListener{
 
@@ -67,6 +67,7 @@ public class SoundImplementation implements ActionListener, MouseListener, KeyLi
 	  System.out.println(textField.getText());
 	  Sound.clip.stop();
 	  //music(textField.getText());
+	  //JOptionPane.showMessageDialog(null, "Enter valid .wav file or specify path", "Solver Error", JOptionPane.ERROR_MESSAGE);
 	  }
 	*/
 	if(e.getActionCommand().equals("x")&&textField.getText()!=null)
