@@ -1,16 +1,16 @@
 # MISCELLANEOUS_Java
 ### Khinshan Khan and Ashneel Das
 ---
-##Repo Purpsose:
+## Repo Purpsose:
  ---
  
 
-####Files that may or may not be used but were made for learning
+#### Files that may or may not be used but were made for learning
 
 
  ----
-##Github Usernames: 
+## Github Usernames: 
  ---- 
 
-#####kkhan01
+##### kkhan01
 #### ashneeldas2
