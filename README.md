@@ -1,6 +1,7 @@
 # MISCELLANEOUS_Java
-### Khinshan Khan and Ashneel Das
 ---
+### Khinshan Khan and Ashneel Das
+
 ## Repo Purpsose:
 
 
