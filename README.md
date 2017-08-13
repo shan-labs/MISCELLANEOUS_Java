@@ -8,7 +8,7 @@ Khinshan Khan and Ashneel Das
 Files that may or may not be used but were made for learning
 
 
-## Github [ :octocat: ](www.github.com) Usernames: 
+## Github [ :octocat: ](https://github.com/) Usernames: 
 
 [kkhan01](https://github.com/kkhan01)
 
